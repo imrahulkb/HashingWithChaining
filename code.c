@@ -1,29 +1,29 @@
 #include <stdio.h>
 #include<stdlib.h>
-struct link
+typedef struct
 {
     int data;
     struct link* next;
-};
+} link;
 
-struct link*    newnode(int data)
+link* newNode(int data)
 {
-    struct link * new;
-    new=(struct link *)malloc(sizeof(struct link));
+    link * new;
+    new=(link *)malloc(sizeof(link));
     new->data=data;
     return new;
 }
 
-struct link*    insert(int data,struct link* head)
+link* insert(int data,link* head)
 {
     if(head==NULL)
-    return newnode(data);
+    return newNode(data);
     else
     head->next=insert(data,head->next);
     return head;
 }
 
-struct link*display(struct link*head)
+link* display(link* head)
 {
     if(head!=NULL)
     {
@@ -32,7 +32,7 @@ struct link*display(struct link*head)
     }
 }
 
-struct link*search(int data,struct link*head)
+link*search(int data, link*head)
 {
    while(head!=NULL)
    {
@@ -50,7 +50,7 @@ struct link*search(int data,struct link*head)
 
 int main()
 {
-    struct link* arr[10]={NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL};
+    link* arr[10]={NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL};
     int o,d,x;
     while(1)
     {
